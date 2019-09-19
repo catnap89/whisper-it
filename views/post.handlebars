@@ -26,6 +26,18 @@
           <p>
             <strong>Downvotes</strong>: {{post.downvotes}}
           </p>
+          <p>
+            <strong>Comments</strong>:
+            <ul id="example-list" class="list-group">
+              {{#each comment}}
+              <li data-id="{{this.id}}" class="list-group-item">
+                <p>{{this.body}}</p>
+                {{!-- add javascript to require users to input their pin number for the comment to delete comment --}}
+                <button class="btn btn-danger float-right delete">ｘ</button>
+              </li>
+              {{/each}}
+            </ul>
+          </p>
             <a href="/">← Back To Home</a>
         </div>
       </div>
