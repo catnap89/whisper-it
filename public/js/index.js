@@ -1,49 +1,61 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $username = $("#username");
+var $category = $("#post-category");
+var $pin = $("#pin");
+var $content = $("#post-content");
+
+// var $exampleText = $("#example-text");
+// var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $postsList = $("#posts-list");
 
 // The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
+var postAPI = {
+  savePost: function(post) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/posts",
+      data: JSON.stringify(post)
     });
   },
-  getExamples: function() {
+  getPosts: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/posts",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deletePost: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/posts/" + id,
       type: "DELETE"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+// refreshPosts gets new posts from the db and repopulates the list
+var refreshPosts = function() {
+  postAPI.getPosts().then(function(data) {
+    var $posts = data.map(function(post) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(post.title)
+        .attr("href", "/post/" + post.id);
+
+      var $pID = $("<p>").text(post.id);
+      var $pUsername = $("<p>").text(post.username);
+      var $pCategory = $("<p>").text(post.category);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": post.id
         })
-        .append($a);
+        .append($a)
+        .append($pID)
+        .append($pUsername)
+        .append($pCategory);
 
       var $button = $("<button>")
         .addClass("btn btn-danger float-right delete")
@@ -54,46 +66,57 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $postsList.empty();
+    $postsList.append($posts);
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// handleFormSubmit is called whenever we submit a new post
+// Save the new post to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var post = {
+    // later will have to implement a random name generator
+    username: $username.val().trim,
+    // category will have to change later because it will be selected from a drop down menu
+    category: $category.val().trim,
+    pin: $pin.val().trim,
+    content: $content.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if (!(post.username && post.category && post.content)) {
+    alert("You must enter a username, category and content!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  postAPI.savePost(post).then(function() {
+    refreshPosts();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $username.val("");
+  $category.val("");
+  $pin.val("");
+  $content.val("");
 };
 
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+// handleDeleteBtnClick is called when an post's delete button is clicked
+// Remove the post from the db and refresh the list
+// COMMENTED OUT FOR NOW
+// var handleDeleteBtnClick = function() {
+//   var idToDelete = $(this)
+//     .parent()
+//     .attr("data-id");
+//   // if PIN exists,
+//   var postPin = prompt("Please enter the pin# you created for this post!");
+//   if (postPin === PIN NUMBER IN DATABASE) {
+//     postAPI.deleteExample(idToDelete).then(function() {
+//       refreshPosts();
+//     });
+//   }
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
+// };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $postsList.on("click", ".delete", handleDeleteBtnClick);
