@@ -1,3 +1,45 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.topic-col {
+  min-width: 16em;
+}
+
+.created-col,
+.last-post-col {
+  min-width: 11em;
+}
+
+.navbar-brand {
+font-size: 60px;
+
+
+}
+
+.author-col {
+  min-width: 12em ;
+}
+
+.post-col {
+  min-width: 20em;
+
+}
+
+.details-col {
+  min-width: 7em;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.important {
+color: red;
+}
+
+.spy  {
+color:gray;
+
+}
+
