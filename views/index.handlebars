@@ -31,6 +31,7 @@
         <ul id="posts-list" class="list-group">
           {{#each post}}
           <li data-id="{{this.id}}" class="list-group-item">
+            <p>{{this.category}}</p>
             <p>{{this.username}}</p>
             <p>{{this.createdAt}}</p>
             <a href="post/{{this.id}}">{{this.title}}</a>
