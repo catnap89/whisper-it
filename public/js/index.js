@@ -8,7 +8,7 @@ var $title = $("#post-title");
 // var $exampleText = $("#example-text");
 // var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
-var $postsList = $("#posts-list");
+// var $postsList = $("#posts-list");
 
 // The API object contains methods for each kind of request we'll make
 var postAPI = {
