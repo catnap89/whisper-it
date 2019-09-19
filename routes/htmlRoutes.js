@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page with Posts data
   app.get("/", function(req, res) {
-    db.Posts.findAll({}).then(function(dbPosts) {
+    db.Post.findAll({}).then(function(dbPosts) {
       res.render("index", {
         msg: "Welcome!",
         // post will be used for handlebars
@@ -14,9 +14,10 @@ module.exports = function(app) {
 
   // Load post page and pass in an post by id
   app.get("/post/:id", function(req, res) {
-    db.Posts.findOne({ where: { id: req.params.id } }).then(function(dbPosts) {
+    db.Post.findOne({ where: { id: req.params.id } }).then(function(dbPosts) {
       res.render("post", {
-        post: dbPosts
+        post: dbPosts,
+        comment: dbComment
       });
     });
   });
