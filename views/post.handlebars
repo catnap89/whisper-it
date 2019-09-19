@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Post</h5>
+          {{!-- SHOULD PIN (PASSWORD OF THE POST) BE INCLUDED IN HERE? --}}
+          <p>
+            <strong>ID</strong>: {{post.id}}
+          </p>
+          <p>
+            <strong>Username</strong>: {{post.username}}
+          </p>
+          <p>
+            <strong>Category</strong>: {{post.category}}
+          </p>
+          <p>
+            <strong>Created At</strong>: {{post.createdAt}}
+          </p>
+          <p>
+            <strong>Content</strong>: {{post.body}}
+          </p>
+          <p>
+            <strong>Upvotes</strong>: {{example.upvotes}}
+          </p>
+          <p>
+            <strong>Downvotes</strong>: {{post.downvotes}}
+          </p>
+            <a href="/">← Back To Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
