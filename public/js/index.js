@@ -3,6 +3,7 @@ var $username = $("#username");
 var $category = $("#post-category");
 var $pin = $("#pin");
 var $content = $("#post-content");
+var $title = $("#post-title");
 
 // var $exampleText = $("#example-text");
 // var $exampleDescription = $("#example-description");
@@ -78,14 +79,15 @@ var handleFormSubmit = function(event) {
 
   var post = {
     // later will have to implement a random name generator
-    username: $username.val().trim,
+    username: $username.val().trim(),
     // category will have to change later because it will be selected from a drop down menu
-    category: $category.val().trim,
-    pin: $pin.val().trim,
-    content: $content.val().trim()
+    category: $category.val().trim(),
+    pin: $pin.val().trim(),
+    body: $content.val().trim(),
+    title: $title.val().trim()
   };
 
-  if (!(post.username && post.category && post.content)) {
+  if (!(post.username && post.category && post.body && post.title)) {
     alert("You must enter a username, category and content!");
     return;
   }
@@ -98,6 +100,7 @@ var handleFormSubmit = function(event) {
   $category.val("");
   $pin.val("");
   $content.val("");
+  $title.val("");
 };
 
 // handleDeleteBtnClick is called when an post's delete button is clicked
