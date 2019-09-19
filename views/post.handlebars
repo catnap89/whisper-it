@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Post</h5>
+          {{!-- SHOULD PIN (PASSWORD OF THE POST) BE INCLUDED IN HERE? --}}
+          <p>
+            <strong>ID</strong>: {{post.id}}
+          </p>
+          <p>
+            <strong>Username</strong>: {{post.username}}
+          </p>
+          <p>
+            <strong>Category</strong>: {{post.category}}
+          </p>
+          <p>
+            <strong>Created At</strong>: {{post.createdAt}}
+          </p>
+          <p>
+            <strong>Content</strong>: {{post.body}}
+          </p>
+          <p>
+            <strong>Upvotes</strong>: {{example.upvotes}}
+          </p>
+          <p>
+            <strong>Downvotes</strong>: {{post.downvotes}}
+          </p>
+          <p>
+            <strong>Comments</strong>:
+            <ul id="example-list" class="list-group">
+              {{#each comment}}
+              <li data-id="{{this.id}}" class="list-group-item">
+                <p>{{this.body}}</p>
+                {{!-- add javascript to require users to input their pin number for the comment to delete comment --}}
+                <button class="btn btn-danger float-right delete">ｘ</button>
+              </li>
+              {{/each}}
+            </ul>
+          </p>
+            <a href="/">← Back To Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
