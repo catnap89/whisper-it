@@ -16,7 +16,7 @@ module.exports = function(app) {
     var query = {};
     // What is this part for?
     if (req.query.comment_id) {
-      query.AuthorId = req.query.comment_id;
+      query.CommentId = req.query.comment_id;
     }
     db.Post.findAll({
       where: query,
