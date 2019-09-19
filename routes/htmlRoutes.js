@@ -1,23 +1,22 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
+  // Load index page with Posts data
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Posts.findAll({}).then(function(dbPosts) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        // post will be used for handlebars
+        post: dbPosts
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.render("example", {
-        example: dbExample
+  // Load post page and pass in an post by id
+  app.get("/post/:id", function(req, res) {
+    db.Posts.findOne({ where: { id: req.params.id } }).then(function(dbPosts) {
+      res.render("post", {
+        post: dbPosts
       });
     });
   });
