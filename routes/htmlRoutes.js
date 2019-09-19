@@ -15,9 +15,10 @@ module.exports = function(app) {
   // Load post page and pass in an post by id
   app.get("/post/:id", function(req, res) {
     db.Post.findOne({ where: { id: req.params.id } }).then(function(dbPosts) {
+      console.log(dbPosts);
       res.render("post", {
-        post: dbPosts,
-        comment: dbComment
+        post: dbPosts
+        // comment: dbComment
       });
     });
   });
