@@ -1,7 +1,7 @@
 {{!-- from Treys' Build --}}
  <!-- MAIN CONTAINER-->
   
-  {{!-- <div class="col-md-9">
+  <div class="col-md-9">
 
         <table class="table table-responsive-lg table-borderless mt-3">
           <thead class="thead">
@@ -12,7 +12,7 @@
           </thead>
           <tbody>
             <td>
-              <h3 class="h6"><i class="important fas fa-exclamation fa-lg pr-2"></i><a href="post.html">IMPORTANT: Rules
+              <h3 class="h6"><i class="important fas fa-exclamation fa-lg pr-2"></i><a href="/reply">IMPORTANT: Rules
                   about this forum (Please read before posting!)</a></h3>
               <footer>
                 <div>by: <span>Admin</span>
@@ -22,7 +22,7 @@
             </tr>
             <tr>
               <td>
-                <h3 class="h6"><a href="post.html">Forum post title with a complex and long question Forum post title
+                <h3 class="h6"><a href="/reply">Forum post title with a complex and long question Forum post title
                     with a complex and long question</a></h3>
                 <footer>
                   <div>by: <span>Guest</span>
@@ -30,7 +30,7 @@
                 </footer>
               </td>
             </tr>
-            <tr>
+            {{!-- <tr>
               <td>
                 <h3 class="h6"><a href="post.html">Forum post title with a complex and long question Forum post title
                     with a complex and long question</a></h3>
@@ -38,17 +38,17 @@
                   <div>by: <span>Guest</span>
                     03 Apr 2017, 13:46</div>
                 </footer>
-              </td>
+              </td>  --}}
           </tbody>
         </table>
       </div>
-    </div> --}}
+    </div> 
   
    
 {{!-- Original code Daniel --}}
 
 
-<div id="home">
+{{!-- <div id="home">
   <div class="container-fluid pt-5">
     <div class="row">
       <div class="col-md-9 offset-2">
@@ -79,24 +79,24 @@
           </div>
           
           <button id="submit" class="btn btn-outline-deep-orange waves-effect rounded">Submit</button>
-        </form>
+        </form> 
 
         <h3>Posts:</h3>
         <ul id="posts-list" class="list-group">
-          {{#each post}}
+          {{!#each post}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <p>{{this.category}}</p>
-            <p>{{this.username}}</p>
-            <p>{{this.createdAt}}</p>
-            <a href="post/{{this.id}}">{{this.title}}</a>
+            <p>{{!this.category}}</p>
+            <p>{{!this.username}}</p>
+            <p>{{!this.createdAt}}</p>
+            <a href="post/{{this.id}}">{{!this.title}}</a>
             <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        </li> --}}
+          {{!/each}}
+        {{!-- </ul>
       </div>
     </div>
   </div>
-</div>  
+</div>      --}}
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 

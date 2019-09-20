@@ -22,6 +22,16 @@ module.exports = function(app) {
       });
     });
   });
+// render page post.handlebars to create comment on button click
+  app.get("/create", function(req, res) {
+    res.render("post.handlebars");
+  });
+
+  // render page comments handlebars to reply  to post on button
+
+  app.get("/reply", function(req, res) {
+    res.render("comments.handlebars");
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

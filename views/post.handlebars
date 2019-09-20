@@ -1,6 +1,6 @@
 {{!-- //from Trey's build --}}
   
-    {{!-- <div class="container my-3 mb-5">
+    <div class="container my-3 mb-5">
       
       <div class="row">
         <div class="col-12">
@@ -21,14 +21,15 @@
         </div>
       </div>
     </div> 
-     --}}
+     
       
  
+{{!-- I ADDED an "!" in the handlebars brackets because it wont comment out without it ex:{{! post.id}}  
 
 {{!-- Original Daniels code --}}
 
 
- <div class="container-fluid"> 
+ {{!-- <div class="container-fluid"> 
   <div class="row"> 
     <div class="col-8 offset-2">
       <div class="card mt-4">
@@ -36,36 +37,36 @@
           <h5 class="card-title">Post</h5>
           {{!-- SHOULD PIN (PASSWORD OF THE POST) BE INCLUDED IN HERE? --}}
           <p>
-            <strong>ID</strong>: {{post.id}}
+            <strong>ID</strong>: {{! post.id}}
           </p>
           <p>
-            <strong>Username</strong>: {{post.username}}
+            <strong>Username</strong>: {{! post.username}}
           </p>
           <p>
-            <strong>Category</strong>: {{post.category}}
+            <strong>Category</strong>: {{! post.category}}
           </p>
           <p>
-            <strong>Created At</strong>: {{post.createdAt}}
+            <strong>Created At</strong>: {{!post.createdAt}}
           </p>
           <p>
-            <strong>Content</strong>: {{post.body}}
+            <strong>Content</strong>: {{!post.body}}
           </p>
           <p>
-            <strong>Upvotes</strong>: {{example.upvotes}}
+            <strong>Upvotes</strong>: {{!example.upvotes}}
           </p>
           <p>
-            <strong>Downvotes</strong>: {{post.downvotes}}
+            <strong>Downvotes</strong>: {{! post.downvotes}}
           </p>
           <p>
             <strong>Comments</strong>:
             <ul id="example-list" class="list-group">
-              {{#each comment}}
+              {{!#each comment}}
               <li data-id="{{this.id}}" class="list-group-item">
-                <p>{{this.body}}</p>
+                <p>{{!this.body}}</p>
                 {{!-- add javascript to require users to input their pin number for the comment to delete comment --}}
                 <button class="btn btn-danger float-right delete">ｘ</button>
               </li>
-              {{/each}}
+              {{!/each}}
             </ul>
             {{!-- form to post comment --}}
           </p>
@@ -74,4 +75,4 @@
       </div>
     </div>
    </div> 
-</div>  
+</div>   
