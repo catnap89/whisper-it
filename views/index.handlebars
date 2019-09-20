@@ -1,34 +1,84 @@
+{{!-- from Treys' Build --}}
+ <!-- MAIN CONTAINER-->
+  
+  {{!-- <div class="col-md-9">
+
+        <table class="table table-responsive-lg table-borderless mt-3">
+          <thead class="thead">
+            <!-- <tr>  -->
+            <th scope="col" class="topic-col">
+              <h3>Forum Posts:</h3>
+            </th>
+          </thead>
+          <tbody>
+            <td>
+              <h3 class="h6"><i class="important fas fa-exclamation fa-lg pr-2"></i><a href="post.html">IMPORTANT: Rules
+                  about this forum (Please read before posting!)</a></h3>
+              <footer>
+                <div>by: <span>Admin</span>
+                  03 Apr 2017, 13:46</div>
+              </footer>
+            </td>
+            </tr>
+            <tr>
+              <td>
+                <h3 class="h6"><a href="post.html">Forum post title with a complex and long question Forum post title
+                    with a complex and long question</a></h3>
+                <footer>
+                  <div>by: <span>Guest</span>
+                    03 Apr 2017, 13:46</div>
+                </footer>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h3 class="h6"><a href="post.html">Forum post title with a complex and long question Forum post title
+                    with a complex and long question</a></h3>
+                <footer>
+                  <div>by: <span>Guest</span>
+                    03 Apr 2017, 13:46</div>
+                </footer>
+              </td>
+          </tbody>
+        </table>
+      </div>
+    </div> --}}
+  
+   
+{{!-- Original code Daniel --}}
+
+
 <div id="home">
-  <div class="container">
+  <div class="container-fluid pt-5">
     <div class="row">
-      <div class="col-8 offset-2">
+      <div class="col-md-9 offset-2">
         <h1>{{msg}}</h1>
-        <h2>Whisper it!</h2>
+        {{!-- <h2>Whisper it!</h2> --}}
 
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="username">User Name</label>
-            <input type="text" id="username" class="form-control" aria-describedby="username" placeholder="Enter User Name">
+            <input type="text" id="username" class="form-control bg-light" aria-describedby="username" placeholder="Enter User Name">
           </div>
           {{!-- Make Category As a Drop Down --}}
           <div class="form-group">
             <label for="post-category">Category</label>
-            <input type="text" id="post-category" class="form-control" aria-describedby="post-category">
+            <input type="text" id="post-category" class="form-control bg-light" aria-describedby="post-category">
           </div>
           <div class="form-group">
             <label for="pin">Pin Number</label>
-            <input type="number" id="pin" class="form-control" aria-describedby="pin" placeholder="4~6 Digit Pin# required to delete/update your post">
+            <input type="number" id="pin" class="form-control bg-light" aria-describedby="pin" placeholder="4~6 Digit Pin# required to delete/update your post">
           </div>
           <div class="form-group">
             <label for="post-category">Title</label>
-            <input type="text" id="post-title" class="form-control" aria-describedby="post-title">
+            <input type="text" id="post-title " class="form-control bg-light" aria-describedby="post-title">
           </div>
           <div class="form-group">
             <label for="post-content">Content</label>
-            <textarea type="text" id="post-content" class="form-control" aria-describedby="post-content" placeholder="Enter Content of Your Post"></textarea>
+            <textarea type="text" id="post-content" class="form-control bg-light" aria-describedby="post-content" rows="10" placeholder="Enter Content of Your Post"></textarea>
           </div>
           
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <button id="submit" class="btn btn-outline-deep-orange waves-effect rounded">Submit</button>
         </form>
 
         <h3>Posts:</h3>
@@ -46,9 +96,8 @@
       </div>
     </div>
   </div>
-</div>
+</div>  
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
 
 <script src="/js/index.js"></script>
