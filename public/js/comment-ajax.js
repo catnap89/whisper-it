@@ -1,7 +1,7 @@
 // Get references to page elements
 var $username = $("#username");
-var $pin = $("#comment-pin");
-var $content = $("#comment-content");
+var $commentPin = $("#comment-pin");
+var $commentContent = $("#comment-content");
 var $postID = $("#post-id");
 
 var $submitCommentBtn = $("#submit-comment");
@@ -14,19 +14,19 @@ var commentAPI = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/posts/" + $postID.val().trim() + "/comments",
+      url: "../api/posts/" + $postID.val().trim() + "/comments",
       data: JSON.stringify(comment)
     });
   },
   getComments: function() {
     return $.ajax({
-      url: "api/posts/" + $postID.val().trim() + "/comments",
+      url: "../api/posts/" + $postID.val().trim() + "/comments",
       type: "GET"
     });
   },
   deleteComment: function(id) {
     return $.ajax({
-      url: "api/posts/" + $postID.val().trim() + "/comments" + id,
+      url: "../api/posts/" + $postID.val().trim() + "/comments" + id,
       type: "DELETE"
     });
   }
@@ -70,15 +70,15 @@ var commentAPI = {
 
 // handleFormSubmit is called whenever we submit a new post
 // Save the new post to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleCommentFormSubmit = function(event) {
   event.preventDefault();
 
   var comment = {
     // later will have to implement a random name generator
     username: $username.val().trim(),
-    pin: $pin.val().trim(),
-    body: $content.val().trim(),
-    postId: $postID.val().trim()
+    pin: $commentPin.val().trim(),
+    body: $commentContent.val().trim(),
+    PostId: parseInt($postID.val().trim())
   };
 
   if (!(comment.username && comment.body)) {
@@ -91,8 +91,8 @@ var handleFormSubmit = function(event) {
   });
 
   $username.val("");
-  $pin.val("");
-  $content.val("");
+  $commentPin.val("");
+  $commentContent.val("");
 };
 
 // handleDeleteBtnClick is called when an post's delete button is clicked
@@ -113,5 +113,5 @@ var handleFormSubmit = function(event) {
 // };
 
 // Add event listeners to the submit and delete buttons
-$submitCommentBtn.on("click", handleFormSubmit);
+$submitCommentBtn.on("click", handleCommentFormSubmit);
 // $postsList.on("click", ".delete", handleDeleteBtnClick);

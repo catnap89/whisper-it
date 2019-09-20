@@ -5,10 +5,7 @@ var $pin = $("#pin");
 var $content = $("#post-content");
 var $title = $("#post-title");
 
-// var $exampleText = $("#example-text");
-// var $exampleDescription = $("#example-description");
 var $submitPostBtn = $("#submit-post");
-// var $postsList = $("#posts-list");
 
 // The API object contains methods for each kind of request we'll make
 var postAPI = {
@@ -93,7 +90,9 @@ var handleFormSubmit = function(event) {
   }
 
   postAPI.savePost(post).then(function() {
-    window.location.reload();
+    // window.location.reload();
+    window.location.href = "/";
+    // window.location.replace("/");
   });
 
   $username.val("");
