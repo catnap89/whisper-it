@@ -7,13 +7,12 @@ var $title = $("#post-title");
 
 // var $exampleText = $("#example-text");
 // var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
+var $submitPostBtn = $("#submit-post");
 // var $postsList = $("#posts-list");
 
 // The API object contains methods for each kind of request we'll make
 var postAPI = {
   savePost: function(post) {
-    debugger;
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -122,5 +121,5 @@ var handleFormSubmit = function(event) {
 // };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+$submitPostBtn.on("click", handleFormSubmit);
 // $postsList.on("click", ".delete", handleDeleteBtnClick);
