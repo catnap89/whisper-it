@@ -27,7 +27,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/post/:id/comments", function(req, res) {
+  app.post("/api/posts/:id/comments", function(req, res) {
     db.Comment.create(req.body).then(function(dbComment) {
       res.json(dbComment);
     });

@@ -14,26 +14,22 @@
 </head>
 
 <body>
- <nav class="navbar navbar">
-      <div class="container-fluid"> 
-        <h1><a href="/" class="navbar-brand"><i class="spy fas fa-bullhorn fa-lg pr-4"></i>Whisper-it</a></h1>
-        <form class="form-inline">
-          <input type="text" class="form-control mr-3 mb-2 mb-sm-0 bg-light" placeholder="Search">
-          <button type="submit" class="btn btn-outline-deep-orange waves-effect rounded">Search</button>
-          
-        </form>
-      </div> 
-    </nav>
+  <nav class="navbar navbar">
+    <div class="container-fluid"> 
+      <h1><a href="/" class="navbar-brand"><i class="spy fas fa-bullhorn fa-lg pr-4"></i>Whisper-it</a></h1>
+      <form class="form-inline">
+        <input type="text" class="form-control mr-3 mb-2 mb-sm-0 bg-light" placeholder="Search">
+        <button type="submit" class="btn btn-outline-deep-orange waves-effect rounded">Search</button>
+      </form>
+    </div> 
+  </nav>
   
-  
-
  <!-- MAIN CONTAINER-->
   <div class="container-fluid"> 
-
     <!-- Side Navbar -->
     <div class="row">
       <div class="col-md-2 ml-3 mt-5">
-        <a href="new-topic.html" class="btn btn-outline-deep-orange waves-effect rounded">Create a Post</a>
+        <a href="/createpost" class="btn btn-outline-deep-orange waves-effect rounded">Create a Post</a>
         <br>
         <br>
         <ul>
@@ -46,23 +42,24 @@
           <li>
             <a href="#" class="something"><i class="fas fa-ghost pr-2"></i>Links</a>
           </li>
-
           <li>
             <a href="#" class="something"><i class="fas fa-ghost pr-2"></i>Links </a>
           </li>
         </ul>
-
       </div>
-      <div class="container">
- {{{body}}} 
-</div>
-      </div> 
+      <div class="col-md-8 mr-3 mt-5">
+        {{{body}}} 
+      </div>
+    </div> 
   
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!-- md boostrap -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
+{{!-- jquery & js --}}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/js/post-ajax.js"></script>
 
 </body>
 
