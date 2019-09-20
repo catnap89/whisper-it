@@ -49,23 +49,30 @@
 
 
 <div id="home">
+  {{!-- <div class="container-fluid pt-5">
+    <div class="row">
+      <div class="col-md-9 offset-2"> --}}
 
-  <h1>{{msg}}</h1>
-  {{!-- <h2>Whisper it!</h2> --}}
-  <h3>Posts:</h3>
-  <ul id="posts-list" class="list-group">
-    {{#each post}}
-    <li data-id="{{this.id}}" class="list-group-item">
-      <p>{{this.category}}</p>
-      <p>{{this.username}}</p>
-      <p>{{this.createdAt}}</p>
-      <a href="post/{{this.id}}">{{this.title}}</a>
-      <button class="btn btn-danger float-right delete">ｘ</button>
-    </li>
-    {{/each}}
-  </ul>
+        <h1>{{msg}}</h1>
+
+        <h3>Posts:</h3>
+        <ul id="posts-list" class="list-group">
+          {{#each post}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <p>{{this.category}}</p>
+            <p>{{this.username}}</p>
+            <p>{{this.createdAt}}</p>
+            <a href="post/{{this.id}}">{{this.title}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul>
+
+      {{!-- </div>
+    </div>
+  </div> --}}
 </div>  
 
-{{!-- jquery & js --}}
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
 

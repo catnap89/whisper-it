@@ -1,9 +1,9 @@
 // Get references to page elements
-var $username = $("#username");
-var $category = $("#post-category");
-var $pin = $("#pin");
-var $content = $("#post-content");
-var $title = $("#post-title");
+var $postUsername = $("#username");
+var $postCategory = $("#post-category");
+var $postPin = $("#pin");
+var $postContent = $("#post-content");
+var $postTitle = $("#post-title");
 
 var $submitPostBtn = $("#submit-post");
 
@@ -76,16 +76,16 @@ var handleFormSubmit = function(event) {
 
   var post = {
     // later will have to implement a random name generator
-    username: $username.val().trim(),
+    username: $postUsername.val().trim(),
     // category will have to change later because it will be selected from a drop down menu
-    category: $category.val().trim(),
-    pin: $pin.val().trim(),
-    body: $content.val().trim(),
-    title: $title.val().trim()
+    category: $postCategory.val().trim(),
+    pin: $postPin.val().trim(),
+    body: $postContent.val().trim(),
+    title: $postTitle.val().trim()
   };
 
   if (!(post.username && post.category && post.body && post.title)) {
-    alert("You must enter a username, category and content!");
+    alert("You must enter a username, category, title, and content!");
     return;
   }
 
