@@ -7,6 +7,12 @@
   min-width: 11em;
 } */
 
+h1 {
+  color: grey;
+  font-weight: bold;
+
+}
+
 .navbar-brand {
 font-size: 50px;
 color: orangered;
@@ -21,9 +27,18 @@ box-shadow: 0 8px 6px -6px #999;
 /* the rest of your styling */
 }
 
-h3 {
+h5 {
+color:lightskyblue;
 font-weight: bold;
+padding-left: 12px;
 }
+
+.wind {
+  color:lightskyblue;
+}
+.form-control {
+  border-radius: 1rem;
+  }
 
 span {
 

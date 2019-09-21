@@ -16,38 +16,38 @@
 <body>
   <nav class="navbar navbar">
     <div class="container-fluid"> 
-      <h1><a href="/" class="navbar-brand"><i class="spy fas fa-bullhorn fa-lg pr-4"></i>Whisper-it</a></h1>
+      <h1><a href="/" class="navbar-brand"><i class="spy fas fa-bullhorn fa-lg"></i><i class="wind fas fa-wind pr-4"></i>Whisper-it</a></h1>
       <form class="form-inline">
         <input type="text" class="form-control mr-3 mb-2 mb-sm-0 bg-light" placeholder="Search">
-        <button type="submit" class="btn btn-outline-deep-orange waves-effect rounded">Search</button>
+        <button type="submit" class="btn btn-outline-deep-orange waves-effect rounded-pill"><i class="fas fa-search pr-2"></i>Search</button>
       </form>
     </div> 
   </nav>
-  
+  {{!-- <i class="fas fa-wind"></i> --}}
  <!-- MAIN CONTAINER-->
   <div class="container-fluid"> 
     <!-- Side Navbar -->
     <div class="row">
       <div class="col-md-2 ml-3 mt-5">
-        <a href="/createpost" class="btn btn-outline-deep-orange waves-effect rounded">Create a Post</a>
+        <a href="/createpost" class="btn btn-outline-deep-orange btn-lg waves-effect rounded-pill"><i class="fas fa-plus pr-2"></i>Create a Post</a>
         <br>
         <br>
-        <ul>
+        <ul class="linklist pl-4 pt-3">
           <li>
-            <a href="#" class="something"><i class="fas fa-ghost fa-sm pr-2"></i>Links</a>
-          </li>
+            <i class="fas fa-star pr-2 text-success"></i><a href="#" class="something">Categories</a>
+          </li><br>
           <li>
-            <a href="#" class="something"><i class="fas fa-ghost pr-2"></i>Links</a>
-          </li>
+            <i class="fas fa-star pr-2 text-secondary"></i><a href="#" class="something">Popular Posts</a>
+          </li><br>
           <li>
-            <a href="#" class="something"><i class="fas fa-ghost pr-2"></i>Links</a>
-          </li>
+           <i class="fas fa-star pr-2 text-danger"></i><a href="#" class="something">About Us</a>
+          </li><br>
           <li>
-            <a href="#" class="something"><i class="fas fa-ghost pr-2"></i>Links </a>
+            <i class="fas fa-star pr-2 text-warning"></i><a href="#" class="something">Contact Us</a>
           </li>
         </ul>
       </div>
-      <div class="col-md-8 mr-3 mt-5">
+      <div class="col-md-8 mr-3 mt-5 ml-5">
         {{{body}}} 
       </div>
     </div> 
