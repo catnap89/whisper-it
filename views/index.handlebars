@@ -55,7 +55,7 @@
 
         <h1>{{msg}}</h1>
 <br>
-        <h3>Posts:</h3>
+        <h5>Posts:</h5>
         <ul id="posts-list" class="list-group shadow p-3 mb-5 bg-white rounded">
           {{#each post}}
           <li data-id="{{this.id}}" 
@@ -63,7 +63,7 @@
             <p>{{this.username}}</p>
             <p>{{this.createdAt}}</p>
             <a href="post/{{this.id}}">{{this.title}}</a>
-            <button class="btn btn-light btn-sm float-right delete text-primary"><i class="fas fa-trash-alt fa-2x"></i></button>
+            <a class="btn-white float-right delete text-light"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
            
           </li>
           {{/each}}
