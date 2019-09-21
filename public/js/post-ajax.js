@@ -84,8 +84,10 @@ var handleFormSubmit = function(event) {
     title: $postTitle.val().trim()
   };
 
-  if (!(post.username && post.category && post.body && post.title)) {
-    alert("You must enter a username, category, title, and content!");
+  if (
+    !(post.username && post.category && post.body && post.title && post.pin)
+  ) {
+    alert("You must enter a username, category, title, pin and content!");
     return;
   }
 
@@ -101,6 +103,9 @@ var handleFormSubmit = function(event) {
   $content.val("");
   $title.val("");
 };
+
+// Add event listeners to the submit and delete buttons
+$submitPostBtn.on("click", handleFormSubmit);
 
 // handleDeleteBtnClick is called when an post's delete button is clicked
 // Remove the post from the db and refresh the list
@@ -118,7 +123,4 @@ var handleFormSubmit = function(event) {
 //   }
 
 // };
-
-// Add event listeners to the submit and delete buttons
-$submitPostBtn.on("click", handleFormSubmit);
 // $postsList.on("click", ".delete", handleDeleteBtnClick);
