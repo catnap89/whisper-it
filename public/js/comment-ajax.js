@@ -1,37 +1,32 @@
 // Get references to page elements
 var $username = $("#username");
-var $category = $("#post-category");
-var $pin = $("#pin");
-var $content = $("#post-content");
-var $title = $("#post-title");
+var $commentPin = $("#comment-pin");
+var $commentContent = $("#comment-content");
+var $postID = $("#post-id");
 
-// var $exampleText = $("#example-text");
-// var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-// var $postsList = $("#posts-list");
+var $submitCommentBtn = $("#submit-comment");
 
 // The API object contains methods for each kind of request we'll make
-var postAPI = {
-  savePost: function(post) {
-    debugger;
+var commentAPI = {
+  saveComment: function(comment) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/posts",
-      data: JSON.stringify(post)
+      url: "../api/posts/" + $postID.val().trim() + "/comments",
+      data: JSON.stringify(comment)
     });
   },
-  getPosts: function() {
+  getComments: function() {
     return $.ajax({
-      url: "api/posts",
+      url: "../api/posts/" + $postID.val().trim() + "/comments",
       type: "GET"
     });
   },
-  deletePost: function(id) {
+  deleteComment: function(id) {
     return $.ajax({
-      url: "api/posts/" + id,
+      url: "../api/posts/" + $postID.val().trim() + "/comments" + id,
       type: "DELETE"
     });
   }
@@ -75,33 +70,29 @@ var postAPI = {
 
 // handleFormSubmit is called whenever we submit a new post
 // Save the new post to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleCommentFormSubmit = function(event) {
   event.preventDefault();
 
-  var post = {
+  var comment = {
     // later will have to implement a random name generator
     username: $username.val().trim(),
-    // category will have to change later because it will be selected from a drop down menu
-    category: $category.val().trim(),
-    pin: $pin.val().trim(),
-    body: $content.val().trim(),
-    title: $title.val().trim()
+    pin: $commentPin.val().trim(),
+    body: $commentContent.val().trim(),
+    PostId: parseInt($postID.val().trim())
   };
 
-  if (!(post.username && post.category && post.body && post.title)) {
-    alert("You must enter a username, category and content!");
+  if (!(comment.username && comment.body)) {
+    alert("You must enter a username and content!");
     return;
   }
 
-  postAPI.savePost(post).then(function() {
+  commentAPI.saveComment(comment).then(function() {
     window.location.reload();
   });
 
   $username.val("");
-  $category.val("");
-  $pin.val("");
-  $content.val("");
-  $title.val("");
+  $commentPin.val("");
+  $commentContent.val("");
 };
 
 // handleDeleteBtnClick is called when an post's delete button is clicked
@@ -122,5 +113,5 @@ var handleFormSubmit = function(event) {
 // };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
+$submitCommentBtn.on("click", handleCommentFormSubmit);
 // $postsList.on("click", ".delete", handleDeleteBtnClick);
