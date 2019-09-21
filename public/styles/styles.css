@@ -33,7 +33,9 @@ font-weight: bold;
 padding-left: 12px;
 }
 
-
+.wind {
+  color:lightskyblue;
+}
 .form-control {
   border-radius: 1rem;
   }
