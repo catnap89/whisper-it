@@ -48,22 +48,23 @@
 {{!-- Original code Daniel --}}
 
 
-<div id="home">
+{{!-- <div class="container pb-2 shadow-sm p-3 mb-5 bg-white rounded" id="home">  --}}
   {{!-- <div class="container-fluid pt-5">
     <div class="row">
       <div class="col-md-9 offset-2"> --}}
 
         <h1>{{msg}}</h1>
-
-        <h3>Posts:</h3>
-        <ul id="posts-list" class="list-group">
+<br>
+        <h5>Posts:</h5>
+        <ul id="posts-list" class="list-group shadow p-3 mb-5 bg-white rounded">
           {{#each post}}
-          <li data-id="{{this.id}}" class="list-group-item">
+          <li data-id="{{this.id}}" 
             <p>{{this.category}}</p>
             <p>{{this.username}}</p>
             <p>{{this.createdAt}}</p>
             <a href="post/{{this.id}}">{{this.title}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+            <a class="btn-white float-right delete text-light"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
+           
           </li>
           {{/each}}
         </ul>
@@ -71,7 +72,7 @@
       {{!-- </div>
     </div>
   </div> --}}
-</div>  
+{{!-- </div>   --}}
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
