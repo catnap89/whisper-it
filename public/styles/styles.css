@@ -79,10 +79,11 @@ ul {
 list-style-type: none;
 }
 
-.h6 {
-color:teal;
+.h4 {
+color:lightskyblue;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 /* body {
   background: url(./images/background\ effects.gif);
@@ -90,11 +91,14 @@ color:teal;
 
 =======
 
+=======
+/* 
+>>>>>>> 32025c27f85528da15f950a2a5bd7b1eed14a6b1
 .posts-li {
   border: 1px solid lightgray;
   padding: 5px;
   margin-bottom: 5px;
-}
+}   */
 
 /* These reverse the order of posts-li so that the newest post gets displayed at the top */
 #posts-list {
@@ -103,7 +107,11 @@ color:teal;
 #posts-list > .posts-li {
     transform: rotate(-180deg);
 }
+<<<<<<< HEAD
 /* label {
 font-weight: bold
 } */
 >>>>>>> 5c81158295595a89388909e9fbd1c20e7ef8e5ac
+=======
+
+>>>>>>> 32025c27f85528da15f950a2a5bd7b1eed14a6b1
