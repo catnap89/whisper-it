@@ -98,3 +98,6 @@ color:lightskyblue;
     transform: rotate(-180deg);
 }
 
+.terms {
+  font-weight: bolder;
+}
