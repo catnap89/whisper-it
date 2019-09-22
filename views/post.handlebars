@@ -1,13 +1,14 @@
 {{!-- Original Daniels code --}}
 
 
- <div class="container-fluid"> 
+ {{!-- <div class="container"> 
   <div class="row"> 
-    <div class="col-8 offset-2">
+    <div class="col-9">
       <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Post</h5>
+        <div class="card-body"> --}}
+          <h5 class="card-title mb-3">Post:</h5>
           {{!-- SHOULD PIN (PASSWORD OF THE POST) BE INCLUDED IN HERE? --}}
+          <div class="container shadow border border-light ml-3 p-3 mb-3">
           <p>
             <strong>ID</strong>: {{post.id}}
           </p>
@@ -31,49 +32,55 @@
           </p>
 
           <p>
-            <strong>Comments</strong>:
+            <h5>Comments:</h5>
+            
             <ul id="example-list" class="list-group">
               {{#each post.Comments}}
               <li data-id="{{this.id}}" class="list-group-item">
                 <p>{{this.body}}</p>
                 {{!-- add javascript to require users to input their pin number for the comment to delete comment --}}
-                <button class="btn btn-danger float-right delete-comment">ｘ</button>
+                 <a class="btn-white float-right delete text-light"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
               </li>
               {{/each}}
             </ul>
           </p>
-<a href="/" class="btn btn-outline-success btn-sm waves-effect rounded-pill"></i>Back to Home</a> 
+          
+          </div>
+{{!-- <a href="/" class="btn btn-outline-success btn-sm waves-effect rounded-pill"></i>Back to Home</a>  --}}
+
+
             {{!-- <a href="/">← Back To Home</a> --}}
-        </div>
+        {{!-- </div>
       </div>
     </div>
 
-  </div>
+  </div> --}}
 
-  <div class="row">
-    <div class="col-8 offset-2">
-      <h3>Make Comment On Post #</h3>
-
-      <input class="form-control" id="post-id" type="hidden" value="{{post.id}}" disabled> 
+  {{!-- <div class="row">
+    <div class="container col-9"> --}}
+      
+      <h5>Reply to Post:</h5>
+<div class="container shadow border border-light ml-3 p-3">
+      <input class="form-control border border-light" id="post-id" type="hidden" value="{{post.id}}" disabled> 
       <form class="clearfix mb-4" method="POST">
         <div class="form-group">
-          <label for="username">User Name</label>
-          <input type="text" id="username" class="form-control" aria-describedby="username" placeholder="Enter User Name">
+          <label for="username">User Name:</label>
+          <input type="text" id="username" class="form-control bg-light" aria-describedby="username" placeholder="Enter User Name">
         </div>
         <div class="form-group">
-          <label for="pin">Pin Number</label>
-          <input type="number" id="comment-pin" class="form-control" aria-describedby="comment-pin" placeholder="4~6 Digit Pin# required to delete/update your post">
+          <label for="pin">Pin Number:</label>
+          <input type="number" id="comment-pin" class="form-control bg-light" aria-describedby="comment-pin" placeholder="4~6 Digit Pin# required to delete/update your post">
         </div>
         <div class="form-group">
-          <label for="post-content">Content</label>
-          <textarea type="text" id="comment-content" class="form-control" aria-describedby="comment-content" placeholder="Enter Comment"></textarea>
+          <label for="post-content">Content:</label>
+          <textarea type="text" id="comment-content" class="form-control bg-light" rows="8" aria-describedby="comment-content" placeholder="Enter Comment"></textarea>
         </div>
         
         <button id="submit-comment" class="btn btn-outline-deep-orange waves-effect rounded-pill float-right">Submit</button>
       </form>
     </div>
-  </div>
-</div>
+  {{!-- </div>
+</div> --}} 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="/js/comment-ajax.js"></script>
