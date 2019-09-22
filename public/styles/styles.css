@@ -79,16 +79,16 @@ ul {
 list-style-type: none;
 }
 
-.h6 {
-color:teal;
+.h4 {
+color:lightskyblue;
 }
 
-
+/* 
 .posts-li {
   border: 1px solid lightgray;
   padding: 5px;
   margin-bottom: 5px;
-}
+}   */
 
 /* These reverse the order of posts-li so that the newest post gets displayed at the top */
 #posts-list {
@@ -97,6 +97,4 @@ color:teal;
 #posts-list > .posts-li {
     transform: rotate(-180deg);
 }
-/* label {
-font-weight: bold
-} */
+
