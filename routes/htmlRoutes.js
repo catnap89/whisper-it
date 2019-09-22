@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Post.findAll({}).then(function(dbPosts) {
       res.render("index", {
-        msg: "Welcome!",
+        msg: "Welcome !",
         // post will be used for handlebars
         post: dbPosts
       });
@@ -14,11 +14,21 @@ module.exports = function(app) {
 
   // Load post page and pass in an post by id
   app.get("/post/:id", function(req, res) {
-    db.Post.findOne({ where: { id: req.params.id } }).then(function(dbPosts) {
-      console.log(dbPosts);
+    db.Post.findOne({
+      where: { id: req.params.id },
+      include: [db.Comment]
+    }).then(function(dbPosts) {
       res.render("post", {
         post: dbPosts
-        // comment: dbComment
+      });
+    });
+  });
+
+  // Create Post
+  app.get("/createpost", function(req, res) {
+    db.Post.findAll({}).then(function(dbPosts) {
+      res.render("createPost", {
+        post: dbPosts
       });
     });
   });

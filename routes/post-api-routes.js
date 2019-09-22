@@ -15,9 +15,9 @@ module.exports = function(app) {
   app.get("/api/posts", function(req, res) {
     var query = {};
     // What is this part for?
-    if (req.query.comment_id) {
-      query.CommentId = req.query.comment_id;
-    }
+    // if (req.query.comment_id) {
+    //   query.CommentId = req.query.comment_id;
+    // }
     db.Post.findAll({
       where: query,
       include: [db.Comment]
@@ -42,6 +42,7 @@ module.exports = function(app) {
   app.post("/api/posts", function(req, res) {
     db.Post.create(req.body).then(function(dbPost) {
       res.json(dbPost);
+      console.log(req.body);
     });
   });
 
