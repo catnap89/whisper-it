@@ -86,9 +86,9 @@ color:teal;
 
 .posts-li {
   border: 1px solid lightgray;
-  padding: 5px;
-  margin-bottom: 5px;
-}
+  /* padding: 5px;
+  margin-bottom: 5px; */
+} 
 
 /* These reverse the order of posts-li so that the newest post gets displayed at the top */
 #posts-list {
