@@ -38,7 +38,8 @@ module.exports = function(sequelize, DataTypes) {
     Comment.belongsTo(models.Post, {
       foreignKey: {
         allowNull: false
-      }
+      },
+      onDelete: "cascade"
     });
   };
   return Comment;
