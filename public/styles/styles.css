@@ -33,12 +33,20 @@ font-weight: bold;
 padding-left: 12px;
 }
 
+.ctitle {
+  color:lightskyblue;
+  font-weight: bold;
+  padding-left: 0; 
+}
+
 .wind {
   color:lightskyblue;
 }
 .form-control {
   border-radius: 1rem;
   }
+
+  
 
 span {
 

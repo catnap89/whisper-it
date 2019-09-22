@@ -32,11 +32,11 @@
           </p>
 
           <p>
-            <h5>Comments:</h5>
+            <h3 class="ctitle">Replies:</h3>
             
             <ul id="example-list" class="list-group">
               {{#each post.Comments}}
-              <li data-id="{{this.id}}" class="list-group-item">
+              <li data-id="{{this.id}}" class="list-group-item pb-3">
                 <p>{{this.body}}</p>
                 {{!-- add javascript to require users to input their pin number for the comment to delete comment --}}
                  <a class="btn-white float-right delete text-light"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
@@ -60,9 +60,9 @@
     <div class="container col-9"> --}}
       
       <h5>Reply to Post:</h5>
-<div class="container shadow border border-light ml-3 p-3">
+<div class="container shadow border border-light ml-3 p-3 mt-3">
       <input class="form-control border border-light" id="post-id" type="hidden" value="{{post.id}}" disabled> 
-      <form class="clearfix mb-4" method="POST">
+      <form class="clearfix" method="POST">
         <div class="form-group">
           <label for="username">User Name:</label>
           <input type="text" id="username" class="form-control bg-light" aria-describedby="username" placeholder="Enter User Name">
