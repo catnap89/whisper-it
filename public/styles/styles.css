@@ -83,15 +83,10 @@ list-style-type: none;
 color:lightskyblue;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 /* body {
   background: url(./images/background\ effects.gif);
 } */
 
-=======
-
-=======
 /* 
 >>>>>>> 32025c27f85528da15f950a2a5bd7b1eed14a6b1
 .posts-li {
@@ -107,11 +102,6 @@ color:lightskyblue;
 #posts-list > .posts-li {
     transform: rotate(-180deg);
 }
-<<<<<<< HEAD
 /* label {
 font-weight: bold
 } */
->>>>>>> 5c81158295595a89388909e9fbd1c20e7ef8e5ac
-=======
-
->>>>>>> 32025c27f85528da15f950a2a5bd7b1eed14a6b1
