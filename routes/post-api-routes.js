@@ -7,6 +7,7 @@
 
 // Requiring our models
 var db = require("../models");
+var fs = require("fs")
 
 // Routes
 // =============================================================
@@ -68,3 +69,14 @@ module.exports = function(app) {
     });
   });
 };
+
+
+//Random Name Generator 
+
+const { uniqueNamesGenerator } = require('unique-names-generator');
+ 
+const randomName = uniqueNamesGenerator(); // big_red_donkey
+ 
+//const shortName = uniqueNamesGenerator({ length: 2 });
+
+console.log(randomName);
