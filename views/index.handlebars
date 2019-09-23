@@ -7,7 +7,7 @@
     <p><strong>Category:</strong> {{this.category}}</p>
     <p><strong>Username:</strong> {{this.username}}</p>
     <p><strong>Posted:</strong> {{this.createdAt}}</p>
-    <a href="post/{{this.id}}">{{this.title}}</a>
+    <a href="../post/{{this.id}}">{{this.title}}</a>
     <a class="btn-white float-right delete-post-modal-btn text-light" data-id="{{this.id}}" data-toggle="modal" data-target="#delete-post-modal"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
   </li>
   {{/each}}

@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Post.findAll({}).then(function(dbPosts) {
       res.render("index", {
-        msg: "Welcome !",
+        msg: "Free Space For Free Minds",
         // post will be used for handlebars
         post: dbPosts
       });
@@ -19,6 +19,18 @@ module.exports = function(app) {
       include: [db.Comment]
     }).then(function(dbPosts) {
       res.render("post", {
+        post: dbPosts
+      });
+    });
+  });
+
+  app.get("/category/:category", function(req, res) {
+    db.Post.findAll({
+      where: { category: req.params.category }
+    }).then(function(dbPosts) {
+      res.render("index", {
+        msg: req.params.category,
+        // post will be used for handlebars
         post: dbPosts
       });
     });

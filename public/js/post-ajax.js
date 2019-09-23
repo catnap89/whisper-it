@@ -28,7 +28,7 @@ $(document).ready(function() {
     },
     deletePost: function(postDelete) {
       return $.ajax({
-        url: "api/posts/" + postDelete.id + "/" + postDelete.pin,
+        url: "../api/posts/" + postDelete.id + "/" + postDelete.pin,
         type: "DELETE"
       });
     }
