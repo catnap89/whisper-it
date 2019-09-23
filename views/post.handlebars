@@ -20,21 +20,23 @@
           <p>
             <strong>Category:</strong> {{post.category}}
           </p>
-          <p>
-            <strong>Created At:</strong> {{post.createdAt}}
-          </p>
+         
           <p>
             <strong>Content:</strong> {{post.body}}
           </p>
-           <p>
-           <i class="fas fa-thumbs-up"> :</i> {{example.upvotes}}
-          </p>
-          <p>
-            <i class="fas fa-thumbs-down"> :</i> {{post.downvotes}}
-          </p> 
 
+          <p>
+             <strong>Posted:</strong> {{post.createdAt}}
+          </p>
+           <span>
+           <i class="fas fa-thumbs-up pr-4 upgreen"> : </i> {{example.upvotes}}
+          </span>
+          <span>
+            <i class="fas fa-thumbs-down downred"> :</i> {{post.downvotes}}
+          </span> 
+ 
           {{!-- <span class="likebtn-wrapper" data-identifier="item_1"></span>
-          <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script> --}}
+          <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>  --}}
 
 
           <p>
