@@ -7,6 +7,12 @@
   min-width: 11em;
 } */
 
+h3 {
+  color: orangered;
+  font-weight: bold;
+}
+
+
 h1 {
   color: grey;
   font-weight: bold;
