@@ -46,7 +46,11 @@ padding-left: 12px;
   border-radius: 1rem;
   }
 
-  
+.list-group-item {
+  /* border: 1px solid; */
+  /* padding: 10px;  */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 span {
 
@@ -87,10 +91,17 @@ ul {
 list-style-type: none;
 }
 
+
+
 .h4 {
 color:lightskyblue;
 }
 
+.comments {
+  color:lightskyblue;
+  font-weight: bold;
+  
+}
 /* 
 .posts-li {
   border: 1px solid lightgray;
@@ -108,4 +119,13 @@ color:lightskyblue;
 
 .terms {
   font-weight: bolder;
+}
+
+.comments {
+  padding-left: 0;
+}
+
+strong {
+  font-size: 13px;
+  font-weight: bold;
 }
