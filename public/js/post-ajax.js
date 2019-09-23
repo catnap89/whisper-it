@@ -26,49 +26,13 @@ $(document).ready(function() {
         type: "GET"
       });
     },
-    deletePost: function(id) {
+    deletePost: function(postDelete) {
       return $.ajax({
-        url: "api/posts/" + id,
+        url: "api/posts/" + postDelete.id + "/" + postDelete.pin,
         type: "DELETE"
       });
     }
   };
-
-  // refreshPosts gets new posts from the db and repopulates the list
-  // var refreshPosts = function() {
-  //   postAPI.getPosts().then(function(data) {
-  //     var $posts = data.map(function(post) {
-  //       var $a = $("<a>")
-  //         .text(post.title)
-  //         .attr("href", "/post/" + post.id);
-
-  //       var $pID = $("<p>").text(post.id);
-  //       var $pUsername = $("<p>").text(post.username);
-  //       var $pCategory = $("<p>").text(post.category);
-
-  //       var $li = $("<li>")
-  //         .attr({
-  //           class: "list-group-item",
-  //           "data-id": post.id
-  //         })
-  //         .append($a)
-  //         .append($pID)
-  //         .append($pUsername)
-  //         .append($pCategory);
-
-  //       var $button = $("<button>")
-  //         .addClass("btn btn-danger float-right delete")
-  //         .text("ｘ");
-
-  //       $li.append($button);
-
-  //       return $li;
-  //     });
-
-  //     $postsList.empty();
-  //     $postsList.append($posts);
-  //   });
-  // };
 
   // handleFormSubmit is called whenever we submit a new post
   // Save the new post to the db and refresh the list
@@ -108,21 +72,33 @@ $(document).ready(function() {
   // Add event listeners to the submit and delete buttons
   $submitPostBtn.on("click", handleFormSubmit);
 
+  $(document).on("click", ".delete-post-modal-btn", function() {
+    var postId = $(this).attr("data-id");
+    $(".modal-body #delete-post-id").val(postId);
+  });
+
   // handleDeleteBtnClick is called when an post's delete button is clicked
   // Remove the post from the db and refresh the list
-  // COMMENTED OUT FOR NOW
-  // var handleDeleteBtnClick = function() {
-  //   var idToDelete = $(this)
-  //     .parent()
-  //     .attr("data-id");
-  //   // if PIN exists,
-  //   var postPin = prompt("Please enter the pin# you created for this post!");
-  //   if (postPin === PIN NUMBER IN DATABASE) {
-  //     postAPI.deleteExample(idToDelete).then(function() {
-  //       refreshPosts();
-  //     });
-  //   }
+  var handleDeletePostBtnClick = function(event) {
+    event.preventDefault();
 
-  // };
-  // $postsList.on("click", ".delete", handleDeleteBtnClick);
+    var modalBody = $(this).parents(".modal-body");
+    var pin = modalBody.find("#post-pin-delete").val();
+    var id = modalBody.find("#delete-post-id").val();
+    console.log("Pinny", pin);
+    console.log("id", id);
+
+    var postDelete = {
+      pin: pin,
+      id: id
+    };
+
+    if (postDelete.pin && postDelete.id) {
+      postAPI.deletePost(postDelete).then(function() {
+        window.location.href = "/";
+      });
+    }
+  };
+
+  $(document).on("click", ".delete-post-btn", handleDeletePostBtnClick);
 });
