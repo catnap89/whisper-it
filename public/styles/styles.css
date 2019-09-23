@@ -23,6 +23,14 @@ h1 {
 
 }
 
+.upgreen {
+  color: green;
+}
+
+.downred {
+  color: red;
+}
+
 .navbar-brand {
 font-size: 50px;
 color: orangered;
@@ -139,3 +147,7 @@ strong {
   font-size: 13px;
   font-weight: bold;
 }
+
+p { 
+  
+  margin-bottom: 10px; }
