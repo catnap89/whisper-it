@@ -32,9 +32,8 @@
           </p>
 
           <p>
-            <h3 class="ctitle">Replies:</h3>
-            
-            <ul id="example-list" class="list-group">
+            <strong>Comments</strong>:
+            <ul id="comment-list" class="list-group">
               {{#each post.Comments}}
               <li data-id="{{this.id}}" class="list-group-item pb-3">
                 <p>{{this.body}}</p>
@@ -44,11 +43,7 @@
               {{/each}}
             </ul>
           </p>
-          
-          </div>
-{{!-- <a href="/" class="btn btn-outline-success btn-sm waves-effect rounded-pill"></i>Back to Home</a>  --}}
-
-
+          <a href="/" class="btn btn-outline-success btn-sm waves-effect rounded-pill"></i>Back to Home</a> 
             {{!-- <a href="/">← Back To Home</a> --}}
         {{!-- </div>
       </div>
@@ -56,13 +51,8 @@
 
   </div> --}}
 
-  {{!-- <div class="row">
-    <div class="container col-9"> --}}
-      
-      <h5>Reply to Post:</h5>
-<div class="container shadow border border-light ml-3 p-3 mt-3">
-      <input class="form-control border border-light" id="post-id" type="hidden" value="{{post.id}}" disabled> 
-      <form class="clearfix" method="POST">
+      <input class="form-control" id="post-id" type="hidden" value="{{post.id}}" disabled> 
+      <form class="clearfix mb-4">
         <div class="form-group">
           <label for="username">User Name:</label>
           <input type="text" id="username" class="form-control bg-light" aria-describedby="username" placeholder="Enter User Name">
