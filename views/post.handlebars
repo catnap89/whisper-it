@@ -32,7 +32,7 @@
 
           <p>
             <strong>Comments</strong>:
-            <ul id="example-list" class="list-group">
+            <ul id="comment-list" class="list-group">
               {{#each post.Comments}}
               <li data-id="{{this.id}}" class="list-group-item">
                 <p>{{this.body}}</p>
@@ -42,7 +42,7 @@
               {{/each}}
             </ul>
           </p>
-<a href="/" class="btn btn-outline-success btn-sm waves-effect rounded-pill"></i>Back to Home</a> 
+          <a href="/" class="btn btn-outline-success btn-sm waves-effect rounded-pill"></i>Back to Home</a> 
             {{!-- <a href="/">← Back To Home</a> --}}
         </div>
       </div>
@@ -55,7 +55,7 @@
       <h3>Make Comment On Post #</h3>
 
       <input class="form-control" id="post-id" type="hidden" value="{{post.id}}" disabled> 
-      <form class="clearfix mb-4" method="POST">
+      <form class="clearfix mb-4">
         <div class="form-group">
           <label for="username">User Name</label>
           <input type="text" id="username" class="form-control" aria-describedby="username" placeholder="Enter User Name">

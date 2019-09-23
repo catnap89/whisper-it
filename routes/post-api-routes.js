@@ -13,13 +13,7 @@ var db = require("../models");
 module.exports = function(app) {
   // GET route for getting all of the posts
   app.get("/api/posts", function(req, res) {
-    var query = {};
-    // What is this part for?
-    // if (req.query.comment_id) {
-    //   query.CommentId = req.query.comment_id;
-    // }
     db.Post.findAll({
-      where: query,
       include: [db.Comment]
     }).then(function(dbPost) {
       res.json(dbPost);
@@ -47,10 +41,12 @@ module.exports = function(app) {
   });
 
   // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
+  app.delete("/api/posts/:id/:pin", function(req, res) {
+    console.log(req.params);
     db.Post.destroy({
       where: {
-        id: req.params.id
+        id: req.params.id,
+        pin: req.params.pin
       }
     }).then(function(dbPost) {
       res.json(dbPost);

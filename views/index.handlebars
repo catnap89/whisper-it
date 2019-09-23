@@ -1,79 +1,51 @@
-{{!-- from Treys' Build --}}
- <!-- MAIN CONTAINER-->
-  
-  {{!-- <div class="col-md-9">
-
-        <table class="table table-responsive-lg table-borderless mt-3">
-          <thead class="thead">
-            <!-- <tr>  -->
-            <th scope="col" class="topic-col">
-              <h3>Forum Posts:</h3>
-            </th>
-          </thead>
-          <tbody>
-            <td>
-              <h3 class="h6"><i class="important fas fa-exclamation fa-lg pr-2"></i><a href="post.html">IMPORTANT: Rules
-                  about this forum (Please read before posting!)</a></h3>
-              <footer>
-                <div>by: <span>Admin</span>
-                  03 Apr 2017, 13:46</div>
-              </footer>
-            </td>
-            </tr>
-            <tr>
-              <td>
-                <h3 class="h6"><a href="post.html">Forum post title with a complex and long question Forum post title
-                    with a complex and long question</a></h3>
-                <footer>
-                  <div>by: <span>Guest</span>
-                    03 Apr 2017, 13:46</div>
-                </footer>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h3 class="h6"><a href="post.html">Forum post title with a complex and long question Forum post title
-                    with a complex and long question</a></h3>
-                <footer>
-                  <div>by: <span>Guest</span>
-                    03 Apr 2017, 13:46</div>
-                </footer>
-              </td>
-          </tbody>
-        </table>
-      </div>
-    </div> --}}
-  
-   
-{{!-- Original code Daniel --}}
-
-
-{{!-- <div class="container pb-2 shadow-sm p-3 mb-5 bg-white rounded" id="home">  --}}
-  {{!-- <div class="container-fluid pt-5">
-    <div class="row">
-      <div class="col-md-9 offset-2"> --}}
-
-        <h1>{{msg}}</h1>
+<h1>{{msg}}</h1>
 <br>
-        <h5>Posts:</h5>
-        <ul id="posts-list" class="list-group ml-4 bg-white">
-          {{#each post}}
-          <li class="posts-li shadow p-2 mb-3 border border-light" data-id="{{this.id}}">
-            <p>{{this.category}}</p>
-            <p>{{this.username}}</p>
-            <p>{{this.createdAt}}</p>
-            <a href="post/{{this.id}}">{{this.title}}</a>
-            <a class="btn-white float-right delete text-light"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
-            
-          </li>
-          {{/each}}
-        </ul>
+<h5>Posts:</h5>
+<ul id="posts-list" class="list-group ml-4 bg-white">
+  {{#each post}}
+  <li class="posts-li shadow p-2 mb-3 border border-light" data-id="{{this.id}}">
+    <p>{{this.category}}</p>
+    <p>{{this.username}}</p>
+    <p>{{this.createdAt}}</p>
+    <a href="post/{{this.id}}">{{this.title}}</a>
+    <a class="btn-white float-right delete-post-modal-btn text-light" data-id="{{this.id}}" data-toggle="modal" data-target="#delete-post-modal"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
+  </li>
+  {{/each}}
+</ul>
 
-      {{!-- </div>
+{{!-- delete post modal --}}
+<div class="modal" tabindex="-1" role="dialog" id="delete-post-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter Pin For Your Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="clearfix mb-4">
+          <div class="form-group">
+            <label for="post-pin-delete">Pin Number</label>
+            <input type="number" id="post-pin-delete" class="form-control" aria-describedby="post-pin-delete" placeholder="4~6 Digit Pin# You Set For Your Post">
+          </div>
+          <div class="form-group">
+            <label for="post-id">Post ID</label>
+            <input class="form-control post-delete-id" id="delete-post-id" value="" disabled>
+          </div>
+        </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary delete-post-btn">Delete Post</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
     </div>
-  </div> --}}
-{{!-- </div>   --}}
+  </div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="/js/post-ajax.js"></script>
 
 
