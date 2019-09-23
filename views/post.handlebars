@@ -1,82 +1,108 @@
-{{!-- Original Daniels code --}}
+<h5 class="post-title">Post:</h5>
 
+<div class="container shadow border border-light ml-3 p-3 mb-3 ml-4">
+  <p>
+    <strong>ID:</strong> {{post.id}}
+  </p>
+  <p>
+    <strong>Username:</strong> {{post.username}}
+  </p>
+  <p>
+    <strong>Category:</strong> {{post.category}}
+  </p>
 
+  <p>
+    <strong>Content:</strong> {{post.body}}
+  </p>
+
+  <p>
+      <strong>Posted:</strong> {{post.createdAt}}
+  </p>
+    <span>
+    <i class="fas fa-thumbs-up pr-4 upgreen"> : </i> {{example.upvotes}}
+  </span>
+  <span>
+    <i class="fas fa-thumbs-down downred"> :</i> {{post.downvotes}}
+  </span> 
   
-  {{!-- <div class="row"> 
-    <div class="col-9">
-      <div class="card mt-4">
-        <div class="card-body">  --}}
-          <h5 class="post-title">Post:</h5>
-{{!-- <div class="container">  --}}
+  {{!-- <span class="likebtn-wrapper" data-identifier="item_1"></span>
+  <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>  --}}
 
-          {{!-- SHOULD PIN (PASSWORD OF THE POST) BE INCLUDED IN HERE? --}}
-          <div class="container shadow border border-light ml-3 p-3 mb-3 ml-4">
-          <p>
-            <strong>ID:</strong> {{post.id}}
-          </p>
-          <p>
-            <strong>Username:</strong> {{post.username}}
-          </p>
-          <p>
-            <strong>Category:</strong> {{post.category}}
-          </p>
-         
-          <p>
-            <strong>Content:</strong> {{post.body}}
-          </p>
-
-          <p>
-             <strong>Posted:</strong> {{post.createdAt}}
-          </p>
-           <span>
-           <i class="fas fa-thumbs-up pr-4 upgreen"> : </i> {{example.upvotes}}
-          </span>
-          <span>
-            <i class="fas fa-thumbs-down downred"> :</i> {{post.downvotes}}
-          </span> 
- 
-          {{!-- <span class="likebtn-wrapper" data-identifier="item_1"></span>
-          <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>  --}}
-
-
-          <p>
-            <h4 class="comments">Replies:</h4>
-            <ul id="comment-list" class="list-group">
-              {{#each post.Comments}}
-              <li data-id="{{this.id}}" class="list-group-item p-2 mb-3">
-                <p>{{this.body}}</p>
-                {{!-- add javascript to require users to input their pin number for the comment to delete comment --}}
-                 <a class="btn-white float-right delete text-light"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
-              </li>
-              {{/each}}
-            </ul>
-          </p>
+  <p>
+    <h4 class="comments">Replies:</h4>
+    <ul id="comment-list" class="list-group">
+      {{#each post.Comments}}
+      <li data-id="{{this.id}}" class="list-group-item p-2 mb-3">
+        <p>{{this.body}}</p>
+          <a class="btn-white float-right delete-comment-modal-btn text-light" data-id="{{this.id}}" data-toggle="modal" data-target="#delete-comment-modal"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
+      </li>
+      {{/each}}
+    </ul>
+  </p>
 </div>
           
          
 <h5 class="post-reply ml-3">Reply to Post:</h5>
-  <div class="container shadow border border-light ml-3 p-3 mb-3 ml-4">
+<div class="container shadow border border-light ml-3 p-3 mb-3 ml-4">
 
-      <input class="form-control" id="post-id" type="hidden" value="{{post.id}}" disabled> 
-      <form class="clearfix mb-4">
-        <div class="form-group">
-          <label for="username">User Name:</label>
-          <input type="text" id="username" class="form-control bg-light" aria-describedby="username" placeholder="Enter User Name">
-        </div>
-        <div class="form-group">
-          <label for="pin">Pin Number:</label>
-          <input type="number" id="comment-pin" class="form-control bg-light" aria-describedby="comment-pin" placeholder="4~6 Digit Pin# required to delete/update your post">
-        </div>
-        <div class="form-group">
-          <label for="post-content">Content:</label>
-          <textarea type="text" id="comment-content" class="form-control bg-light" rows="8" aria-describedby="comment-content" placeholder="Enter Comment"></textarea>
-        </div>
-        
-        <button id="submit-comment" class="btn btn-outline-deep-orange waves-effect rounded-pill float-right"><i class="fas fa-plus pr-2"></i>Submit</button>
-      </form>
-  
-  
+  <input class="form-control" id="post-id" type="hidden" value="{{post.id}}" disabled> 
+  <form class="clearfix mb-4">
+    <div class="form-group">
+      <label for="username">User Name:</label>
+      <input type="text" id="username" class="form-control bg-light" aria-describedby="username" placeholder="Enter User Name">
+    </div>
+    <div class="form-group">
+      <label for="pin">Pin Number:</label>
+      <input type="number" id="comment-pin" class="form-control bg-light" aria-describedby="comment-pin" placeholder="4~6 Digit Pin# required to delete/update your post">
+    </div>
+    <div class="form-group">
+      <label for="post-content">Content:</label>
+      <textarea type="text" id="comment-content" class="form-control bg-light" rows="8" aria-describedby="comment-content" placeholder="Enter Comment"></textarea>
+    </div>
+    
+    <button id="submit-comment" class="btn btn-outline-deep-orange waves-effect rounded-pill float-right"><i class="fas fa-plus pr-2"></i>Submit</button>
+  </form>
+
 </div> 
+
+{{!-- delete comment modal --}}
+<div class="modal" tabindex="-1" role="dialog" id="delete-comment-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h3 class="modal-title">Enter Pin For Your Comment</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form class="clearfix mb-2">
+          <div class="form-group">
+            <label for="comment-pin-delete">Pin Number:</label>
+            <input type="number" id="comment-pin-delete" class="form-control bg-light" aria-describedby="comment-pin-delete" placeholder="4~6 Digit Pin# You Set For Your Comment">
+          </div>
+          <div class="form-group">
+            <label for="comment-id">Comment ID:</label>
+            <input class="form-control comment-delete-id bg-light" id="delete-comment-id" value="" disabled>
+          </div>
+          <div class="form-group">
+            <label for="comment-post-id">Post ID:</label>
+            <input class="form-control comment-post-delete-id bg-light" id="delete-comment-post-id" value="{{post.id}}" disabled>
+          </div>
+        </form>
+
+        <div class="modal-footer mb-1">
+          <button type="button" class="btn btn-primary delete-comment-btn"><i class="fas fa-times pr-2"></i> Delete Comment</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="/js/comment-ajax.js"></script>

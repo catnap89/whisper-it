@@ -4,6 +4,7 @@ $(document).ready(function() {
   var $commentPin = $("#comment-pin");
   var $commentContent = $("#comment-content");
   var $postID = $("#post-id");
+  var $commentPostID = $("#delete-comment-post-id"); // same thing as postID for comment modal
 
   var $submitCommentBtn = $("#submit-comment");
 
@@ -25,9 +26,15 @@ $(document).ready(function() {
         type: "GET"
       });
     },
-    deleteComment: function(id) {
+    deleteComment: function(commentDelete) {
       return $.ajax({
-        url: "../api/posts/" + $postID.val().trim() + "/comments" + id,
+        url:
+          "../api/posts/" +
+          $commentPostID.val().trim() +
+          "/comments/" +
+          commentDelete.id +
+          "/" +
+          commentDelete.pin,
         type: "DELETE"
       });
     }
@@ -60,24 +67,36 @@ $(document).ready(function() {
     $commentContent.val("");
   };
 
+  $submitCommentBtn.on("click", handleCommentFormSubmit);
+
+  // Comment Delete Functionality
+  $(document).on("click", ".delete-comment-modal-btn", function() {
+    var commentId = $(this).attr("data-id");
+    $(".modal-body #delete-comment-id").val(commentId);
+  });
+
   // handleDeleteBtnClick is called when an post's delete button is clicked
   // Remove the post from the db and refresh the list
-  // COMMENTED OUT FOR NOW
-  // var handleDeleteBtnClick = function() {
-  //   var idToDelete = $(this)
-  //     .parent()
-  //     .attr("data-id");
-  //   // if PIN exists,
-  //   var postPin = prompt("Please enter the pin# you created for this post!");
-  //   if (postPin === PIN NUMBER IN DATABASE) {
-  //     postAPI.deleteExample(idToDelete).then(function() {
-  //       refreshPosts();
-  //     });
-  //   }
+  var handleDeleteCommentBtnClick = function(event) {
+    event.preventDefault();
 
-  // };
+    var modalBody = $(this).parents(".modal-body");
+    var pin = modalBody.find("#comment-pin-delete").val();
+    var id = modalBody.find("#delete-comment-id").val();
+    console.log("Pinny", pin);
+    console.log("id", id);
 
-  // Add event listeners to the submit and delete buttons
-  $submitCommentBtn.on("click", handleCommentFormSubmit);
-  // $postsList.on("click", ".delete", handleDeleteBtnClick);
+    var commentDelete = {
+      pin: pin,
+      id: id
+    };
+
+    if (commentDelete.pin && commentDelete.id) {
+      commentAPI.deleteComment(commentDelete).then(function() {
+        window.location.reload();
+      });
+    }
+  };
+
+  $(document).on("click", ".delete-comment-btn", handleDeleteCommentBtnClick);
 });
