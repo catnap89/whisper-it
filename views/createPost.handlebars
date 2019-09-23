@@ -7,10 +7,21 @@
       <input type="text" id="username" class="form-control bg-light" aria-describedby="username" placeholder="Enter User Name" required>
     </div>
     {{!-- Make Category As a Drop Down --}}
-    <div class="form-group">
+<div class="form-group">
+    <label for="exampleFormControlSelect1">Categories:</label>
+    <select class="form-control bg-light" id="exampleFormControlSelect1">
+      <option>General Discussions</option>
+      <option>Business</option>
+      <option>Social</option>
+      <option>Personal Relationships</option>
+      <option>School</option>
+    </select>
+  </div>
+   
+    {{!-- <div class="form-group">
       <label for="post-category">Category:</label>
       <input type="text" id="post-category" class="form-control bg-light" aria-describedby="post-category" required>
-    </div>
+    </div> --}}
     <div class="form-group">
       <label for="pin">Pin Number:</label>
       <input type="number" id="pin" class="form-control bg-light" aria-describedby="pin" placeholder="4~6 Digit Pin# required to delete/update your post" required>
@@ -24,7 +35,7 @@
       <textarea type="text" id="post-content" class="form-control bg-light" aria-describedby="post-content" rows="8" placeholder="Write your Message here." required></textarea>
     </div>
      
-     <button id="submit-post" class="btn btn-outline-deep-orange waves-effect rounded-pill ">Submit Post</button>  
+     <button id="submit-post" class="btn btn-outline-deep-orange waves-effect rounded-pill float-right"><i class="fas fa-plus pr-2"></i>Submit Post</button>  
    
   </form>
   {{!-- <button href="/" class="btn btn-outline-success waves-effect rounded-pill"></i>Back Home</button>  --}}
