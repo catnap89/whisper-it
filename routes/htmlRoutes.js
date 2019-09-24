@@ -38,5 +38,14 @@ module.exports = function(app) {
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
+
+  // Render faq page for any unmatched routes
+  app.get("/faq", function(req, res) {
+    res.render("faq");
+
+    //  Render 404 page for any unmatched routes
+    app.get("*", function(req, res) {
+      res.render("404");
+    });
   });
 };
