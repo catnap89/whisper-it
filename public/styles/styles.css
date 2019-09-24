@@ -23,6 +23,10 @@ h1 {
 
 }
 
+h2 {
+  font-weight: bold;
+}
+
 .upgreen {
   color: green;
 }
@@ -151,3 +155,11 @@ strong {
 p { 
   
   margin-bottom: 10px; }
+
+  .faq {
+    color: gray;
+  }
+
+  .questions {
+    font-weight: bold;
+  }
