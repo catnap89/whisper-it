@@ -45,6 +45,11 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/about", function(req, res) {
+    res.render("about");
+  });
+  //render about us page
+
   // Render faq page for any unmatched routes
   app.get("/faq", function(req, res) {
     res.render("faq");
