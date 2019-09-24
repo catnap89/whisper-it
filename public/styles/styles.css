@@ -159,3 +159,7 @@ p {
   .faq {
     color: gray;
   }
+
+  .questions {
+    font-weight: bold;
+  }
