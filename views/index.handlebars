@@ -4,10 +4,10 @@
 <ul id="posts-list" class="list-group ml-4 bg-white">
   {{#each post}}
   <li class="posts-li shadow p-2 mb-3 border border-light" data-id="{{this.id}}">
-    <p>{{this.category}}</p>
-    <p>{{this.username}}</p>
-    <p>{{this.createdAt}}</p>
-    <a href="post/{{this.id}}">{{this.title}}</a>
+    <p><strong>Category:</strong> {{this.category}}</p>
+    <p><strong>Username:</strong> {{this.username}}</p>
+    <p><strong>Posted:</strong> {{this.createdAt}}</p>
+    <a href="../post/{{this.id}}">{{this.title}}</a>
     <a class="btn-white float-right delete-post-modal-btn text-light" data-id="{{this.id}}" data-toggle="modal" data-target="#delete-post-modal"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
   </li>
   {{/each}}

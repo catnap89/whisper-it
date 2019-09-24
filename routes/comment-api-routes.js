@@ -33,10 +33,12 @@ module.exports = function(app) {
     });
   });
 
-  app.delete("/api/posts/:id/comments/:id", function(req, res) {
+  app.delete("/api/posts/:id/comments/:id/:pin", function(req, res) {
+    console.log(req.params);
     db.Comment.destroy({
       where: {
-        id: req.params.id
+        id: req.params.id,
+        pin: req.params.pin
       }
     }).then(function(dbComment) {
       res.json(dbComment);
