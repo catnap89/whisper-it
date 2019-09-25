@@ -45,7 +45,7 @@ $(document).ready(function() {
     var post = {
       username: postUsername.val().trim(),
       category: postCategory.val(),
-      pin: parseInt(postPin.val().trim()),
+      pin: postPin.val().trim(),
       body: postContent.val().trim(),
       title: postTitle.val().trim()
     };
