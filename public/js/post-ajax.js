@@ -6,7 +6,11 @@ $(document).ready(function() {
   var $postContent = $("#post-content");
   var $postTitle = $("#post-title");
 
-  var $submitPostBtn = $("#submit-post");
+  // var $submitPostBtn = $("#submit-post");
+
+  var randomNum = Math.floor(Math.random() * 1000);
+  var randomName = new Chance(randomNum);
+  $postUsername.val(randomName.name());
 
   // The API object contains methods for each kind of request we'll make
   var postAPI = {
@@ -36,42 +40,46 @@ $(document).ready(function() {
 
   // handleFormSubmit is called whenever we submit a new post
   // Save the new post to the db and refresh the list
-  var handleFormSubmit = function(event) {
+  var formSubmit = function(event) {
     event.preventDefault();
-
     var post = {
-      // later will have to implement a random name generator
       username: $postUsername.val().trim(),
-      // category will have to change later because it will be selected from a drop down menu
-      category: $postCategory.val().trim(),
+      category: $postCategory.val(),
       pin: $postPin.val().trim(),
       body: $postContent.val().trim(),
       title: $postTitle.val().trim()
     };
-
     if (
-      !(post.username && post.category && post.body && post.title && post.pin)
+      !(post.username || post.category || post.body || post.title || post.pin)
     ) {
-      alert("You must enter a username, category, title, pin and content!");
+      //alert("You must enter a username, category, title, pin and content!");
+      console.log(
+        "You must enter a username, category, title, pin and content!"
+      );
       return;
     }
-
+    console.log("ran");
     postAPI.savePost(post).then(function() {
       // window.location.reload();
-      window.location.href = "/";
+      // window.location.href = "/";
       // window.location.replace("/");
-    });
 
-    $username.val("");
-    $category.val("");
-    $pin.val("");
-    $content.val("");
-    $title.val("");
+      emptyForm();
+    });
   };
 
-  // Add event listeners to the submit and delete buttons
-  $submitPostBtn.on("click", handleFormSubmit);
+  function emptyForm() {
+    $postUsername.val("");
+    $postCategory.val("");
+    $postPin.val("");
+    $postContent.val("");
+    $postTitle.val("");
+  }
 
+  // Add event listeners to the submit and delete buttons
+  // $(document).on("submit", "#createForm", handleFormSubmit);
+  // $("#createForm").on("submit", handleFormSubmit);
+  $("#submit-post").on("click", formSubmit);
   $(document).on("click", ".delete-post-modal-btn", function() {
     var postId = $(this).attr("data-id");
     $(".modal-body #delete-post-id").val(postId);

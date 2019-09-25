@@ -1,7 +1,7 @@
 <div class="newpost pl-3" id="create-post">
   <h2 class="h4">Create New Post:</h2>
   <div class="container col-9 shadow p-3 border border-light ml-3">
-  <form class="clearfix mb-2">
+  <form class="clearfix mb-2" id="createForm">
     <div class="form-group">
       <label for="username">User Name:</label>
       <input type="text" id="username" class="form-control bg-light" aria-describedby="username" placeholder="Enter User Name" required>
@@ -18,11 +18,7 @@
         <option>Random Thoughts</option>
       </select>
     </div>
-   
-    {{!-- <div class="form-group">
-      <label for="post-category">Category:</label>
-      <input type="text" id="post-category" class="form-control bg-light" aria-describedby="post-category" required>
-    </div>  --}}
+
     <div class="form-group">
       <label for="pin">Pin Number:</label>
       <input type="number" id="pin" class="form-control bg-light" aria-describedby="pin" placeholder="4~6 Digit Pin# required to delete/update your post" required>
@@ -39,9 +35,12 @@
      <button id="submit-post" class="btn btn-outline-deep-orange waves-effect rounded-pill float-right"><i class="fas fa-plus pr-2"></i>Submit Post</button>  
    
   </form>
-  {{!-- <button href="/" class="btn btn-outline-success waves-effect rounded-pill"></i>Back Home</button>  --}}
+
 </div>
 </div>
+
+{{!-- Chance --}}
+<script src="http://chancejs.com/chance.min.js"></script>
 {{!-- jquery & js --}}
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="/js/post-ajax.js"></script>

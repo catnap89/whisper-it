@@ -8,6 +8,11 @@ $(document).ready(function() {
 
   var $submitCommentBtn = $("#submit-comment");
 
+  var nameInput = $("#username");
+  var randomNum = Math.floor(Math.random() * 1000);
+  var randomName = new Chance(randomNum);
+  nameInput.val(randomName.word());
+
   // The API object contains methods for each kind of request we'll make
   var commentAPI = {
     saveComment: function(comment) {
@@ -40,7 +45,7 @@ $(document).ready(function() {
     }
   };
 
-  // handleFormSubmit is called whenever we submit a new post
+  // handleCommentFormSubmit is called whenever we submit a new post
   // Save the new post to the db and refresh the list
   var handleCommentFormSubmit = function(event) {
     event.preventDefault();
