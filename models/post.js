@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
     category: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: "General"
+      defaultValue: "General Discussions"
     },
     pin: {
       type: DataTypes.INTEGER,
