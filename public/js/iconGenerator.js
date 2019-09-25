@@ -1,4 +1,3 @@
-
 //Creates Random Icon for Search Button
 var hash = Math.floor(Math.random() * 1001);
 
