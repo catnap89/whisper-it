@@ -1,16 +1,16 @@
 $(document).ready(function() {
   // Get references to page elements
-  var $postUsername = $("#username");
-  var $postCategory = $("#post-category");
-  var $postPin = $("#pin");
-  var $postContent = $("#post-content");
-  var $postTitle = $("#post-title");
+  var postUsername = $("#post-username");
+  var postCategory = $("#post-category");
+  var postPin = $("#pin");
+  var postContent = $("#post-content");
+  var postTitle = $("#post-title");
 
-  // var $submitPostBtn = $("#submit-post");
+  var submitPostBtn = $("#submit-post");
 
   var randomNum = Math.floor(Math.random() * 1000);
   var randomName = new Chance(randomNum);
-  $postUsername.val(randomName.name());
+  postUsername.val(randomName.name());
 
   // The API object contains methods for each kind of request we'll make
   var postAPI = {
@@ -43,43 +43,33 @@ $(document).ready(function() {
   var formSubmit = function(event) {
     event.preventDefault();
     var post = {
-      username: $postUsername.val().trim(),
-      category: $postCategory.val(),
-      pin: $postPin.val().trim(),
-      body: $postContent.val().trim(),
-      title: $postTitle.val().trim()
+      username: postUsername.val().trim(),
+      category: postCategory.val(),
+      pin: parseInt(postPin.val().trim()),
+      body: postContent.val().trim(),
+      title: postTitle.val().trim()
     };
-    if (
-      !(post.username || post.category || post.body || post.title || post.pin)
-    ) {
-      //alert("You must enter a username, category, title, pin and content!");
-      console.log(
-        "You must enter a username, category, title, pin and content!"
-      );
+    if (post.username && post.category && post.body && post.title) {
+      console.log("ran");
+      postAPI.savePost(post).then(function() {
+        // window.location.reload();
+        window.location.href = "/";
+        // window.location.replace("/");
+      });
+      // emptyForm();
+      postUsername.val("");
+      postCategory.val("");
+      postPin.val("");
+      postContent.val("");
+      postTitle.val("");
+    } else {
+      alert("You must enter a username, category, title, pin and content!");
       return;
     }
-    console.log("ran");
-    postAPI.savePost(post).then(function() {
-      // window.location.reload();
-      // window.location.href = "/";
-      // window.location.replace("/");
-
-      emptyForm();
-    });
   };
 
-  function emptyForm() {
-    $postUsername.val("");
-    $postCategory.val("");
-    $postPin.val("");
-    $postContent.val("");
-    $postTitle.val("");
-  }
+  submitPostBtn.on("click", formSubmit);
 
-  // Add event listeners to the submit and delete buttons
-  // $(document).on("submit", "#createForm", handleFormSubmit);
-  // $("#createForm").on("submit", handleFormSubmit);
-  $("#submit-post").on("click", formSubmit);
   $(document).on("click", ".delete-post-modal-btn", function() {
     var postId = $(this).attr("data-id");
     $(".modal-body #delete-post-id").val(postId);

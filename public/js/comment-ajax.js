@@ -11,7 +11,7 @@ $(document).ready(function() {
   var nameInput = $("#username");
   var randomNum = Math.floor(Math.random() * 1000);
   var randomName = new Chance(randomNum);
-  nameInput.val(randomName.word());
+  nameInput.val(randomName.name());
 
   // The API object contains methods for each kind of request we'll make
   var commentAPI = {
@@ -51,7 +51,6 @@ $(document).ready(function() {
     event.preventDefault();
 
     var comment = {
-      // later will have to implement a random name generator
       username: $username.val().trim(),
       pin: $commentPin.val().trim(),
       body: $commentContent.val().trim(),
