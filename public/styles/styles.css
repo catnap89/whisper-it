@@ -167,3 +167,12 @@ p {
   .smilie {
     color: purple;
   }
+
+  .titleshow {
+    font-size: 18px;
+  }
+
+  .contentshow {
+    font-size: 18px;
+    color: blue; 
+  }
