@@ -26,18 +26,18 @@
   {{!-- <span class="likebtn-wrapper" data-identifier="item_1"></span>
   <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>  --}}
 
-  <strong>
+  {{!-- <strong> --}}
     <h4 class="comments">Replies:</h4>
     <ul id="comment-list" class="list-group">
       {{#each post.Comments}}
       <li data-id="{{this.id}}" class="list-group-item p-2 mb-3">
          <p><strong class="uname">Username:</strong> {{this.username}}</p>
-        <p>{{this.body}}</p>
+        <p class="commentbody">{{this.body}}</p>
           <a class="btn-white float-right delete-comment-modal-btn text-light" data-id="{{this.id}}" data-toggle="modal" data-target="#delete-comment-modal"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
       </li>
       {{/each}}
     </ul>
-  </strong>
+  {{!-- </strong> --}}
 </div>
           
          
