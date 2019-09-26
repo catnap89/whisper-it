@@ -26,7 +26,7 @@
   {{!-- <span class="likebtn-wrapper" data-identifier="item_1"></span>
   <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>  --}}
 
-  <p>
+  <strong>
     <h4 class="comments">Replies:</h4>
     <ul id="comment-list" class="list-group">
       {{#each post.Comments}}
@@ -59,9 +59,10 @@
       <textarea type="text" id="comment-content" class="form-control bg-light" rows="8" aria-describedby="comment-content" placeholder="Enter Comment"></textarea>
     </div>
     
-  </form>
- <button id="submit-comment" class="btn btn-outline-deep-orange waves-effect rounded-pill float-right"><i class="fas fa-plus pr-2"></i>Submit</button>
-</div> 
+  
+  <button id="submit-comment" class="btn btn-outline-deep-orange waves-effect rounded-pill float-right"><i class="fas fa-plus pr-2"></i>Submit</button>
+ </form>
+ </div>
 
 {{!-- delete comment modal --}}
 <div class="modal" tabindex="-1" role="dialog" id="delete-comment-modal">
