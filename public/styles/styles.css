@@ -176,3 +176,9 @@ p {
     font-size: 18px;
     color: blue; 
   }
+
+  .commentbody {
+    font-size: 16px;
+    color:green; 
+    font-weight: bold;
+  }
