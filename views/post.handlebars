@@ -1,21 +1,20 @@
 <h5 class="post-title">Post:</h5>
 
-<div class="container shadow border border-light ml-3 p-3 mb-3 ml-4">
-  <p>
-    <strong>ID:</strong> {{post.id}}  <strong class="pl-2">Username:</strong> {{post.username}}
-  </p>
-  <p>
-    <strong>Category:</strong> {{post.category}}
-  </p>
+<div class="container shadow border border-light ml-3 p-3 mb-3 ml-4 pt-4">
 
+  
   <p>
-    <strong>Content:</strong> <span class="contentshow">{{post.body}}</span>
+    {{!-- <strong>ID:</strong> {{post.id}}   --}}
+    <strong class="uname">Username:</strong> {{post.username}} <strong class="ucat pl-3">Category:</strong> {{post.category}}
   </p>
-
+  
   <p>
       <strong>Posted:</strong> {{post.createdAt}}
   </p>
-
+  {{!-- <hr> --}}
+ <p>
+   <span class="contentshow">{{post.body}}</span>
+  </p>
   <br>
     {{!-- <span>
     <i class="fas fa-thumbs-up pr-4 upgreen"> : </i> {{example.upvotes}}
@@ -32,12 +31,13 @@
     <ul id="comment-list" class="list-group">
       {{#each post.Comments}}
       <li data-id="{{this.id}}" class="list-group-item p-2 mb-3">
+         <p><strong class="uname">Username:</strong> {{this.username}}</p>
         <p>{{this.body}}</p>
           <a class="btn-white float-right delete-comment-modal-btn text-light" data-id="{{this.id}}" data-toggle="modal" data-target="#delete-comment-modal"><i class="fas fa-trash-alt" data-toggle="tooltip" title="Delete"></i></a>
       </li>
       {{/each}}
     </ul>
-  </p>
+  </strong>
 </div>
           
          
